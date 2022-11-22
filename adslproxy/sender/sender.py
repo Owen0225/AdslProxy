@@ -67,6 +67,7 @@ class Sender(object):
             self.redis = RedisClient()
             self.redis.remove(CLIENT_NAME)
             logger.info(f'Removed {CLIENT_NAME} successfully')
+            time.sleep(DELAY_DISCON)
             return True
         except redis.ConnectionError:
             logger.info(f'Remove {CLIENT_NAME} failed')
